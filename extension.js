@@ -20,7 +20,9 @@ function activate(context) {
       });
 
       const hasTargetUrlLines = lines.filter(line => {
-        return /https?:\/\/[\w/:%#\$&\?\(\)~\.=\+\-]+/g.test(line.text);
+        return /https?:\/\/urldefense.proofpoint.com[\w/:%#\$&\?\(\)~\.=\+\-]+/g.test(
+          line.text
+        );
       });
 
       // http://scout.dreamhosters.com/tools/ProofPointDecode.html
@@ -50,7 +52,7 @@ function activate(context) {
 
       const decoded = hasTargetUrlLines.map(line => {
         const urlCode = line.text.match(
-          /https?:\/\/[\w/:%#\$&\?\(\)~\.=\+\-]+/g
+          /https?:\/\/urldefense.proofpoint.com[\w/:%#\$&\?\(\)~\.=\+\-]+/g
         )[0];
         const decoded = decode_url(urlCode);
 
